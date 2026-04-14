@@ -35,31 +35,3 @@ Se ejecutó la inundación utilizando una técnica de saturación de ancho de ba
 ```bash
 # Ejecución con privilegios de superusuario en la terminal de Kali
 sudo hping3 -S --flood -V -p 80 192.168.1.7
-
-Análisis de Flags:
-
--S (SYN): Activa el flag de sincronización para iniciar conexiones.
-
---flood: Envía paquetes a la máxima capacidad de la tarjeta de red (NIC) sin esperar respuesta.
-
--p 80: Target asignado al puerto estándar de servicios web.
-
-Fase 3: Telemetría de Resultados
-Total de paquetes enviados: 21,656,336.
-
-Tiempo de ejecución: ~108 segundos.
-
-Estado final: 100% packet loss (Confirmación de saturación del flujo de salida del atacante).
-
-Impacto observado: Degradación crítica de los servicios de red en el host víctima y agotamiento de recursos en la pila TCP/IP del kernel.
-
-🛡️ Estrategias de Remediación (Hardening)
-Como parte del análisis de seguridad, se proponen las siguientes medidas de mitigación para fortalecer la infraestructura:
-
-Activación de SYN Cookies: Técnica que permite al servidor manejar el backlog de conexiones sin asignar recursos de memoria RAM hasta que se complete el handshake.
-
-Configuración de Firewalls (Rate Limiting): Implementar límites de velocidad de paquetes por segundo (pps) desde una misma dirección IP de origen.
-
-Filtrado de Perímetro: Uso de sistemas IDS/IPS para detectar y descartar (drop) automáticamente paquetes SYN que no finalizan el proceso de conexión.
-
-Nota de Responsabilidad: Este repositorio tiene fines estrictamente académicos y de seguridad ética. La ejecución de estas técnicas en infraestructuras ajenas sin autorización explícita es ilegal y está penada por las leyes de delitos informáticos internacionales.
