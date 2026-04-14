@@ -36,7 +36,8 @@ Se ejecutó la inundación utilizando una técnica de saturación de ancho de ba
 # Ejecución con privilegios de superusuario en la terminal de Kali
 sudo hping3 -S --flood -V -p 80 192.168.1.7
 
-Análisis de Flags:
+
+###Análisis de Flags:
 
 -S (SYN): Activa el flag de sincronización para iniciar conexiones.
 
